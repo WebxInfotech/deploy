@@ -1,25 +1,13 @@
 {
   "name": "single-page-portfolio",
   "version": "1.0.0",
-  "description": "A modern single page static website built with HTML, CSS, and TypeScript",
+  "description": "A modern single page static website",
   "main": "index.html",
   "scripts": {
-    "start": "http-server . -p 3000 -a 0.0.0.0",
-    "serve": "http-server . -p 3000 -a 0.0.0.0",
-    "build": "echo 'Static website - no build required'",
-    "dev": "http-server . -p 3000 -a 0.0.0.0"
+    "start": "echo 'Static website - no start script needed'",
+    "build": "echo 'Static website - no build required'"
   },
-  "keywords": [
-    "portfolio",
-    "website",
-    "typescript",
-    "html",
-    "css",
-    "static"
-  ],
+  "keywords": ["portfolio", "website", "static"],
   "author": "Your Name",
-  "license": "MIT",
-  "devDependencies": {
-    "http-server": "^14.1.1"
-  }
+  "license": "MIT"
 }
