@@ -1,17 +1,18 @@
-# Use nginx for static file serving
-FROM nginx:alpine
+# Use Node.js as base image
+FROM node:18-alpine
 
-# Remove default nginx static assets
-RUN rm -rf /usr/share/nginx/html/*
+# Set working directory
+WORKDIR /app
 
-# Copy static files to nginx html directory
-COPY index.html styles.css script.js healthcheck.html /usr/share/nginx/html/
+# Copy package.json and install dependencies
+COPY package.json ./
+RUN npm install
 
-# Copy custom nginx configuration
-COPY nginx.conf /etc/nginx/nginx.conf
+# Copy all static files
+COPY . .
 
-# Expose port 80
-EXPOSE 80
+# Expose port 3000
+EXPOSE 3000
 
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Start the server
+CMD ["npm", "start"]

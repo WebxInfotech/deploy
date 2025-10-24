@@ -2,10 +2,12 @@
   "name": "single-page-portfolio",
   "version": "1.0.0",
   "description": "A modern single page static website",
-  "main": "index.html",
+  "main": "server.js",
   "scripts": {
-    "start": "echo 'Static website - no start script needed'",
-    "build": "echo 'Static website - no build required'"
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
   },
   "keywords": ["portfolio", "website", "static"],
   "author": "Your Name",
