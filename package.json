@@ -4,10 +4,10 @@
   "description": "A modern single page static website built with HTML, CSS, and TypeScript",
   "main": "index.html",
   "scripts": {
-    "start": "npx http-server . -p 3000 -o",
-    "serve": "npx http-server . -p 3000 -o",
+    "start": "http-server . -p 3000 -a 0.0.0.0",
+    "serve": "http-server . -p 3000 -a 0.0.0.0",
     "build": "echo 'Static website - no build required'",
-    "dev": "npx http-server . -p 3000 -o"
+    "dev": "http-server . -p 3000 -a 0.0.0.0"
   },
   "keywords": [
     "portfolio",

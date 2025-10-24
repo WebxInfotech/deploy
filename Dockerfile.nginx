@@ -1,14 +1,30 @@
 # Use nginx for static file serving
 FROM nginx:alpine
 
+# Remove default nginx static assets
+RUN rm -rf /usr/share/nginx/html/*
+
 # Copy static files to nginx html directory
-COPY . /usr/share/nginx/html/
+COPY index.html styles.css script.js healthcheck.html /usr/share/nginx/html/
 
 # Copy custom nginx configuration
 COPY nginx.conf /etc/nginx/nginx.conf
+
+# Create a non-root user
+RUN addgroup -g 1001 -S nginx
+RUN adduser -S nginx -u 1001 -G nginx
+
+# Change ownership
+RUN chown -R nginx:nginx /usr/share/nginx/html
+RUN chown -R nginx:nginx /var/cache/nginx
+RUN chown -R nginx:nginx /var/log/nginx
+RUN chown -R nginx:nginx /etc/nginx/conf.d
+RUN touch /var/run/nginx.pid
+RUN chown -R nginx:nginx /var/run/nginx.pid
 
 # Expose port 80
 EXPOSE 80
 
 # Start nginx
+USER nginx
 CMD ["nginx", "-g", "daemon off;"]
