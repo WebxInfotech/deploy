@@ -5,7 +5,7 @@ FROM nginx:alpine
 RUN rm -rf /usr/share/nginx/html/*
 
 # Copy all static files to nginx html directory
-COPY index.html styles.css script.js healthcheck.html /usr/share/nginx/html/
+COPY index.html styles.css script.js healthcheck.html 404.html /usr/share/nginx/html/
 
 # Copy custom nginx configuration
 COPY nginx.conf /etc/nginx/nginx.conf
